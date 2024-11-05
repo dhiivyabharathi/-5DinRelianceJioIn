@@ -1,4 +1,4 @@
-## Qn 1: Problem Statement: Given a string S as an input from which a user wants to select a character to make a key as his secret.
+## Problem Statement: Given a string S as an input from which a user wants to select a character to make a key as his secret.
 
 The selection of the key is as follows:
 From the input, he wants to get the first unique character that is not present in the input.
