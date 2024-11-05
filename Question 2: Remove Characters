@@ -1,0 +1,40 @@
+## Problem Statement: You are given a string str consisting of lowercase English alphabets only.
+Your task is to remove all the characters from the string if their frequency is divisible by their order in the lowercase alphabet.
+
+Input Format: The first line contains a single string str.
+Output Format: Print the resultant string after removing all the characters from the string if their frequency is divisible by their order in lowercase alphabets.
+Constraints: 1 <= |str| <= 10^5
+
+Sample Testcase 0
+Testcase Input: aaaaa
+Testcase Output: 
+Explanation: Character ‘a’ has the frequency 5 and order 1, and 5 is divisible by 1. So, all the ‘a’s will be removed from the string resulting in an empty string. 
+Sample Testcase 1
+Testcase Input: aab
+Testcase Output: b
+Explanation: Character ‘a’ has the frequency 2 and order 1, and 2 is divisible by 1. All the characters‘ a’ will be removed, and character ‘b’ has the frequency 1 and order 2. And as 1 is not divisible by 2. We will not remove any occurrence of ‘b’ from the string.
+
+Code:
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    string str;
+    cin>>str;
+    unordered_map<char,int>map;
+    for(char ch:str){
+        map[ch]++;
+    }
+    string result="";
+    for(char ch:str){
+        int order=ch-'a'+1;
+        if(map[ch]%order!=0){
+            result+=ch;
+        }
+    }
+    cout<<result<<endl;
+    return 0;
+}
+   
