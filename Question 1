@@ -1,0 +1,50 @@
+## Qn 1: Problem Statement: Given a string S as an input from which a user wants to select a character to make a key as his secret.
+
+The selection of the key is as follows:
+From the input, he wants to get the first unique character that is not present in the input.
+Then he wants to compute the length of the input starting from the first character in the string till this character he found.
+This length would be his final key.
+You have to find the final key.
+Note: S consists of only lowercase English letters.
+
+Input Format: The first line contains a string S representing the input string.
+Output Format: Print a single integer representing the length of the string starting from the first character in the string till the first unique character he found. or -1 if no such character exists.
+Constraints: 1 <= S.length <= 10^5
+
+Sample Testcase 0: 
+Testcase Input: aabbc
+Testcase Output: 4
+Explanation: There is a unique character 'c' in string s at index 4 starting from first index -'0'.
+
+Sample Testcase 1:
+Testcase Input: hello
+Testcase Output: 0
+Explanation: Element on index 0 ‘h’ is the first unique character.
+
+Code:
+
+```
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int findkeylen(const string& s){
+    unordered_map<char,int>map;
+    for(char ch:s){
+        map[ch]++;
+    }
+    for(int i=0;i<s.size();i++){
+        if(map[s[i]]==1){
+            return i;
+        }
+    }
+    return -1;
+}
+int main() {
+    string s;
+    cin>>s;
+    cout<<findkeylen(s)<<endl;
+    return 0;
+}
+```
+              
