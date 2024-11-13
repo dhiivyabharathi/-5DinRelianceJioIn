@@ -1,0 +1,23 @@
+## Problem Statement: A string word with any combination of the letters "P," "Q," or "R" is supplied to you. 
+Your objective is to figure out how many extra letters must be added to the string to be legitimate. 
+A string is considered legitimate if it can be created by repeatedly concatenating the letter "PQR".
+You are allowed to insert any number of letters "P," "Q," or "R" anywhere in the string and in any order. 
+For example, if the string is "PPQRR", you can insert “QR” after the first “P”, and you can insert “PQ” before the last “R”, resulting in the string "PQRPQRPQR".
+Note that this string is valid because it can be formed by concatenating "PQR" Thrice.
+
+Input Format: The first line of input is an integer N, the length of the input string.
+The second line of input is a string of length N, representing the input string to be checked.
+
+Output Format: The program outputs a single integer, representing the minimum number of changes required to make the input string have a valid pattern.
+
+Constraints: 1 <= N <= 10^5 
+
+Sample Testcase 0: 
+Testcase Input:
+6
+pqrppr
+Testcase Output: 3
+Explanation: We need to add QR after P (at 4th position) and Q after P (at 5th position) giving string "PQRPQRPQR".
+
+Code:
+
