@@ -1,0 +1,69 @@
+## Problem Statement:Alice has a bookshelf with two rows of books, organized in sorted order based on the day of the month she needs each book. 
+She wants to combine these two rows into a single row while maintaining the sorted order.
+Given two linked lists representing the books on each shelf, assist Alice in merging them into one.
+Note: It is also possible for any of the rows to be empty.
+
+Input format: The first line of input contains two integers N and M,representing the sizes of the two rows.
+The second line of input contains N space-separated integers, representing the books on the first shelf.
+The third line of input contains M space-separated integers, representing the books on the second shelf.
+
+Output Format: Convert the two linked lists into one and display the merged list of books in sorted order.
+Constraints: 0 ≤  N ≤10^6
+0 ≤  M ≤10^6
+1 ≤  Node.val ≤ 30
+
+Sample Testcase 0:
+Testcase Input:
+5 0
+2 3 4 5 6
+Testcase Output: 2 3 4 5 6
+Explanation: We can see the second shelf is already empty. So after converting into one row, the shelf should look like this - 2, 3, 4, 5, 6
+
+Code:
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+void mergelist(int n, int m, const vector<int>& shelf1, const vector<int>&shelf2){
+    int i=0, j=0;
+    vector<int>mergedlist;
+    while(i<n&&j<m){
+        if(shelf1[i]<shelf2[i]){
+            mergedlist.push_back(shelf1[i]);
+            i++;
+        }
+        else{
+            mergedlist.push_back(shelf2[i]);
+            j++;
+        }
+    }
+    while(i<n){
+        mergedlist.push_back(shelf1[i]);
+        i++;
+    }
+     while(j<m){
+        mergedlist.push_back(shelf2[i]);
+        j++;
+    }
+    for (int book:mergedlist) {
+        cout<<book<< " ";
+    }
+    cout<<endl;
+}
+
+int main() {
+    int n,m;
+    cin>>n>>m;
+    vector<int>shelf1(n);
+    vector<int>shelf2(m);
+    for(int i=0;i<n;i++){
+        cin>>shelf1[i];
+    }
+    for(int i=0;i<m;i++){
+        cin>>shelf2[i];
+    }
+    mergelist(n,m,shelf1,shelf2);
+    return 0;
+}
